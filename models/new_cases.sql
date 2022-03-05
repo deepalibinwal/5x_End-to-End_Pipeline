@@ -1,0 +1,9 @@
+--DAILY COVID CASES REPORT
+select date, sum(New_cases) as new_cases from "FIVETRAN_INTERVIEW_DB"."GOOGLE_SHEETS"."COVID_19_INDONESIA_DEEPALI"
+group by date 
+
+CREATE TABLE "INTERVIEW_DB"."PLAYGROUND_DEEPALI"."NEW_CASES" AS
+select date, sum(New_cases) as new_cases from "FIVETRAN_INTERVIEW_DB"."GOOGLE_SHEETS"."COVID_19_INDONESIA_DEEPALI"
+group by date 
+
+select * from  "INTERVIEW_DB"."PLAYGROUND_DEEPALI"."NEW_CASES"

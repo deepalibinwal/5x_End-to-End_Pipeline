@@ -1,0 +1,11 @@
+--REGIONS WITH HIGHEST DEATH RATE
+select year_month, location, death_rate From (
+select *, row_number()OVER(partition by year_month order by death_rate desc) as rank_death_rate 
+from  "INTERVIEW_DB"."PLAYGROUND_DEEPALI"."DEATH_RATE" ) Where rank_death_rate=1
+
+CREATE TABLE "INTERVIEW_DB"."PLAYGROUND_DEEPALI"."HIGHEST_DEATH_RATE_REGIONS" AS
+select year_month, location, death_rate From (
+select *, row_number()OVER(partition by year_month order by death_rate desc) as rank_death_rate 
+from  "INTERVIEW_DB"."PLAYGROUND_DEEPALI"."DEATH_RATE" ) Where rank_death_rate=1
+
+select * from "INTERVIEW_DB"."PLAYGROUND_DEEPALI"."HIGHEST_DEATH_RATE_REGIONS"
