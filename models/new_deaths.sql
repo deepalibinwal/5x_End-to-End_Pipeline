@@ -1,0 +1,10 @@
+--DAILY COVID DEATH REPORT 
+
+select date, sum(New_deaths) as new_deaths from "FIVETRAN_INTERVIEW_DB"."GOOGLE_SHEETS"."COVID_19_INDONESIA_DEEPALI"
+group by date 
+
+CREATE TABLE "INTERVIEW_DB"."PLAYGROUND_DEEPALI"."NEW_DEATHS" AS
+select date, sum(New_deaths) as new_deaths from "FIVETRAN_INTERVIEW_DB"."GOOGLE_SHEETS"."COVID_19_INDONESIA_DEEPALI"
+group by date 
+
+select * from "INTERVIEW_DB"."PLAYGROUND_DEEPALI"."NEW_DEATHS"
